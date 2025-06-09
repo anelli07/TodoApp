@@ -22,7 +22,8 @@ struct ProfileView: View {
                 }
                 
                 //Profile name
-                Text("\(authService.user?.firstName ?? "") \(authService.user?.lastName ?? "")")                    .font(.title)
+                Text("\(authService.user?.firstName ?? "") \(authService.user?.lastName ?? "")")                    
+                    .font(.title)
                     .bold()
                 
                     .padding(0.5)
