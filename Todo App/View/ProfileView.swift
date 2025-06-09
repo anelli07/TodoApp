@@ -1,6 +1,9 @@
 import SwiftUI
 
+
 struct ProfileView: View {
+    @EnvironmentObject var authService: AuthService
+
     var body: some View {
         NavigationStack {
             VStack {
@@ -14,13 +17,12 @@ struct ProfileView: View {
                         .shadow(color: .blue.opacity(0.8), radius: 7, x: 0, y: 0)
                     Image("profile")
                         .resizable()
-                        .frame(width: 100, height: 140)
+                        .frame(width: 140, height: 140)
                         .clipShape(Circle())
                 }
                 
                 //Profile name
-                Text ("Anel Anuash")
-                    .font(.title)
+                Text("\(authService.user?.firstName ?? "") \(authService.user?.lastName ?? "")")                    .font(.title)
                     .bold()
                 
                     .padding(0.5)
