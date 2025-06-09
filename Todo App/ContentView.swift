@@ -8,17 +8,13 @@
 import SwiftUI
 
 struct ContentView: View {
-    var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
-        }
-        .padding()
-    }
-}
+    @EnvironmentObject var authService: AuthService
 
-#Preview {
-    ContentView()
+    var body: some View {
+        if authService.user != nil {
+            TabBarView()
+        } else {
+            AuthView()
+        }
+    }
 }
